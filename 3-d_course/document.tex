@@ -1,0 +1,400 @@
+\documentclass[utf8,14pt,a4paper,oneside,russian]{book}
+\usepackage[14pt]{extsizes}
+\usepackage{longtable}
+
+%===========
+%=Кодировка=
+%===========
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[main=russian, english]{babel}
+
+%===============
+%=Римские цифры=
+%===============
+\newcommand{\RNumb}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+%===================
+%=Разметка страницы=
+%===================
+\usepackage[left=3cm, right=1cm, top=2cm, bottom=2cm, headheight=14pt, headsep=1cm, footskip=1cm]{geometry}
+\pagestyle{plain}
+\linespread{1.1} %Межстрочный интервад
+\setlength{\parindent}{1.25cm} %Абзацный отступ
+\setlength{\parskip}{0em} %Интервал между абзацами
+\usepackage{indentfirst}
+
+\usepackage{misccorr}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{xcolor} %пакет для работы с цветом
+\usepackage{colortbl} %пакет для работы с цветом в таблицах
+
+%===========
+%=Заголовки=
+%===========
+\usepackage{titlesec}
+
+\titleformat{\section}{\centering\large\bfseries}{\thesection.}{0.5em}{\MakeUppercase}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.~#1}}
+\titlespacing*{\section}{0em}{2em}{1em}
+
+\titleformat{\subsection}{\centering\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\titlespacing*{\subsection}{0em}{1.25em}{0.5em}
+
+\titlespacing*{\paragraph}{0em}{1.05em}{0.25em}
+
+%=======
+%=Языки=
+%=======
+\usepackage{algorithm} %пакеты для работы с алгоритмами
+\usepackage{algpseudocode}
+
+\usepackage{listings}
+
+\usepackage{listings}
+\lstdefinelanguage
+{Assembler}
+{morekeywords={CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD, %
+		POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS, %
+		rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp, %
+		r8,r8d,r8w,r8b,r9,r9d,r9w,r9b, %
+		r10,r10d,r10w,r10b,r11,r11d,r11w,r11b, %
+		r12,r12d,r12w,r12b,r13,r13d,r13w,r13b, %
+		r14,r14d,r14w,r14b,r15,r15d,r15w,r15b, mov, times, bits, xor, int, cmp, dw, jmp, jz, inc, db}} % etc.
+
+\lstloadlanguages{C, Python, Assembler, Java}
+
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{gr}{rgb}{0.97, 0.97, 0.97}
+
+\lstset{language=Assembler,
+	extendedchars=true,
+	belowcaptionskip=5pt,
+	backgroundcolor=\color{gr},
+	basicstyle=\ttfamily\normalsize,
+	breakatwhitespace=false,         
+	breaklines=true, 
+	%escapechar=|,
+	%frame=tb,
+	numbers=left,                          
+	numberstyle=\small\color{codegray},         
+	stepnumber=1,                         
+	numbersep=5pt,
+	commentstyle=\itshape,
+	stringstyle=\bfseries,
+	keepspaces=true,
+	showstringspaces=false,
+	tabsize=2,
+}
+
+%============
+%=Содержание=
+%============
+\usepackage{titletoc}
+\makeatletter
+\renewcommand{\tableofcontents}{\section*{Содержание}\markboth{Содержание}{}\@starttoc{toc}\newpage}
+\makeatother
+\titlecontents{section}[1.5em]{}{\contentslabel[\thecontentslabel.]{1.5em}}{}{\rule{0.1cm}{0pt}\titlerule*[0.75pc]{.}\contentspage}
+\titlecontents{subsection}[4em]{\vspace{0.05em}}{\contentslabel[\thecontentslabel.]{2em}}{}{\rule{0.1cm}{0pt}\titlerule*[0.75pc]{.}\contentspage}
+
+%========
+%=Списки=
+%========
+\usepackage{enumitem}
+\makeatletter
+\AddEnumerateCounter{\asbuk}{\@asbuk}{м)}
+\makeatother
+\setlist{nolistsep, topsep=0.375em}
+\setenumerate{leftmargin=2cm, labelsep=0em, labelwidth=0.75cm, align=left}
+\setitemize{leftmargin=2cm, labelsep=0em, labelwidth=0.75cm, align=left}
+\renewcommand{\labelitemi}{--}
+\renewcommand{\labelenumi}{\arabic{enumi})}
+\renewcommand{\labelenumii}{\asbuk{enumii})}
+\renewcommand{\labelenumiii}{--}
+
+%==========================
+%=Математические операторы=
+%==========================
+\DeclareMathOperator{\mob}{Mob}
+\DeclareMathOperator{\fix}{Fix}
+\DeclareMathOperator{\ord}{ord}
+
+\graphicspath{{pictures/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}%for graph
+
+\usepackage{neuralnetwork}
+
+%гиперссылки
+\usepackage[hidelinks]{hyperref}
+
+%заглавные римские цифры
+\newcommand{\RomanNumeralCaps}[1]
+{\MakeUppercase{\romannumeral #1}}
+
+\begin{document}
+	
+	\thispagestyle{empty}
+	\small
+	\begin{center}
+		\includegraphics[width=4.55cm]{logo_mirea}\\
+		\MakeUppercase{Минобрнауки России}\\[1em]
+		Федеральное государственное бюджетное образовательное учреждение\\
+		высшего образования\\[0.5em]
+		\textbf{<<МИРЭА -- Российский технологический университет>>}\\
+		\textbf{РТУ МИРЭА}\\
+		\rule{\textwidth}{0.75pt}\\
+		Институт кибернетики\\
+		Базовая кафедра №252 -- информационной безопасности\\[-0.45em]
+		\rule{\textwidth}{0.75pt}\\[5em]
+		\normalsize\MakeUppercase{\textbf{Курсовая работа}}\small\\[0.5em]
+		По дисциплине\\ <<Сети и системы передачи информации>>\\[1.5em]
+		Тема курсовой работы\\ \textbf{<<Код Миллера>>} \\[3em]
+		\begin{tabular}{p{7cm}p{6cm}c}
+			Студент группы ККСО-03-19 & Николенко В.О. & \rule{2cm}{0.75pt}\\[-0.5em]
+			& & \footnotesize\textit{(подпись)}\small\\[1em]
+			Руководитель курсовой работы & Чернышев Н.Н. & \rule{2cm}{0.75pt}\\[-0.5em]
+			& & \footnotesize\textit{(подпись)}\small\\[5em]
+			Работа представлена к защите & <<\rule{0.5cm}{0.75pt}>> \rule{2cm}{0.75pt} 2022 г. & \\[1em]
+			Допущен к защите & <<\rule{0.5cm}{0.75pt}>> \rule{2cm}{0.75pt} 2022 г. & \\[1em]
+		\end{tabular}
+		\vfill
+		Москва -- 2022
+	\end{center}
+	\normalsize
+	\newpage
+	
+	% Содержание
+	\tableofcontents
+	
+	% Первая глава
+	\section{Введение}
+	
+	Различные методы кодирования широко используются в практической деятельности человека с незапамятных времён. Например, десятичная позиционная система счисления - это способ кодирования натуральных чисел. Другой способ кодирования натуральных	чисел - римские цифры, причем этот метод более наглядный и естественный, действительно, палец - \RomanNumeralCaps{1}, пятерня - \RomanNumeralCaps{5}, две пятерни - \RomanNumeralCaps{10}. Однако при этом способе кодирования труднее выполнять арифметические операции над большими числами, поэтому он был вытеснен способом кодирования, основанном на позиционных системах
+	счисления, в частности, на десятичной системе счисления. 
+	
+	Широко известны способы числового кодирования геометрических объектов и их положения в пространстве: декартовы координаты и полярные координаты, каждый из
+	которых имеет свои особенности. 
+	
+	Из этих примеров можно заключить, что различные способы кодирования обладают
+	присущими только им специфическими особенностями, которые в зависимости от целей кодирования могут быть как достоинством конкретного способа кодирования, так и его недостатком.
+	
+	В данной курсовой работе я бы хотел рассмотреть так называемый Код Миллера, который был разработан для налаживания коммуникации между цифровой аппаратурой и физическими каналами связи.
+	
+	\newpage
+	
+	\section{Теоретическая часть}
+	\textbf{Код Миллера} (иногда называют трёхчастотным) — один из способов линейного кодирования(физического кодирования, канального кодирования, импульсно-кодовая модуляция, манипуляция сигнала). Применяется для передачи информации, представленной в цифровом виде от передатчика к приёмнику, например, по оптоволокну. Код, формируемый согласно правилу кода Миллера, является двухуровневым (сигнал может принимать два потенциальных значения, например: высокий и низкий уровень напряжения) кодом, в котором каждый информационный бит кодируется комбинацией из двух значений потенциала, всего таких комбинаций 4: $\{00, 01, 10, 11\}$, а переходы из одного состояния в другое описываются графом:
+
+	\begin{center}
+		\begin{tikzpicture}[node distance={45mm}, thick, main/.style = {draw, circle}]
+			\node[main] (1) {$01$};
+			\node[main] (2) [above right of=1] {$11$};
+			\node[main] (3) [below right of=2] {$10$};
+			\node[main] (4) [below right of=1] {$00$}; 
+			
+			\draw[->] (1) to [out=90,in=180,looseness=1] node[midway, below right] {0} (2);
+			\draw[->] (2) to [out=0,in=90,looseness=1] node[midway, below left] {1} (3);
+			\draw[->] (3) to [out=-90,in=0,looseness=1] node[midway, above left] {0} (4);		
+			\draw[->] (4) to [out=180,in=-90,looseness=1] node[midway, above right] {1} (1);
+			
+			\draw[->] (1) to [out=30,in=150,looseness=1] node[midway, above] {1} (3);
+			\draw[->] (3) to [out=-150,in=-30,looseness=1] node[midway, below] {1} (1);
+			
+			\draw[->] (2) to [out=-120,in=120,looseness=1] node[midway, left] {0} (4);
+			\draw[->] (4) to [out=60,in=-60,looseness=1] node[midway, right] {0} (2);
+		\end{tikzpicture}
+	\end{center}
+
+	При непрерывном поступлении логических «нулей» или «единиц» на кодирующее устройство переключение полярности происходит с интервалом T, а переход от передачи «единиц» к передаче «нулей» с интервалом 1,5T. При поступлении на кодирующее устройство последовательности 101 возникает интервал 2Т, по этой причине данный метод кодирования называют трёхчастотным. Переход с одного уровня на другой обеспечивает процесс синхронизации передатчика с приёмником, в данном способе передачи осуществляется переключение с одного уровня на другой с минимальной частотой 2Т, что обеспечивает синхронизацию передатчика с приёмником. Принцип формирования кода Миллера показан на картинке ниже:
+	
+	\begin{center}
+		\includegraphics[scale=0.48]{t}\\
+	\end{center}
+
+	Главная особенность кода Миллера - использование импульсов одной и той же длительности для передачи различных символов. Импульсы тактовой длительности T передают и 0, и 1, а импульс 1,5T - символы 01 и 10. По этой причине могут возникать сбои в канале синхронизации, что ведет к появлению ошибок. Защита от таких сбоев основана на привязке синхроимпульсов к комбинации символов 101 - единственной, для которой выделен импульс 2T.
+
+	Давайте рассморим, какие же у такого метода кодирования существуют плюсы:
+	
+	$\bullet$ Высокая эффективность
+	
+	$\bullet$ Способность к самосинхронизации$\footnote{Способность формировать сигнал (кодировать, манипуляция) в котором происходят детерминированные изменения по которым можно синхронизировать такты формирующего сигнала в передатчике с тактами принимающего сигнала в приёмнике. Такие кодовые последовательности получили название "самосинхронизирующиеся коды".}$
+	
+	$\bullet$ Полоса пропускания кода Миллера вдвое меньше полосы пропускания в сравнении с манчестерским кодированием$\footnote{Один из способов кодирования двоичным цифровым сигналом исходных двоичных данных для передачи по одному двухуровневому каналу связи или записи на носитель информации. }$. Тем не менее, за время, когда передается один символ исходной последовательности, надо принять решение - 0 это или 1, что приводит к снижению помехозащищенности, а следовательно для избежания этого надо расширять, как минимум вдвое, полосу частот.
+	
+	Однако, есть и недостатки, например, в данном спсосбе кодирования всё же присутствует постоянная составляющая, при этом достаточно велик и низкочастотный компонент, что преодолено в модифицированном коде Миллера в квадрате$\footnote{В коде Миллера постоянная составляющая появляется при передаче четного числа единиц между двумя нулями. Модификация данного кода исправляет данный недостаток. В подобных комбинациях попросту вычеркивается последний перепад полярностей. \textbf{MFM-кодирование} является двуполярным двухуровневым (сигнал может принимать два значения, соответствующие низкому уровню и высокому уровню) кодом, в котором каждый информационный бит кодируется комбинацией из двух битов.}$.
+	
+	\section{Пример вычислений}
+	
+	\textbf{Дано:}
+	
+	$\exists$ двоичная последовательность: 11100011011. Тогда закодируем её.
+	
+	\textbf{Решение:}
+	
+	Тактовый сигнал должен быть выше частоты поступающей последовательностей в два раза, поскольку каждый бит поступающей последовательности кодируется двумя битами. Далее рассмотрим, с какой вершины нам начинать кодировать. Т.к. первый бит информации у нас 1, то он кодируется комбинацией 01 (если бы был 0, кодировали бы двумя нулями).
+	
+	Следующая комбинация должна формироваться исходя из следующего входящего символа, он равен 1, следовательно по графу, попадаем в комбинацию 10. Далее мы просто следуем по графу в зависимости от того, какой последующий символ поступает на обработку...
+	
+	Итоговая закодированная последовательность будет выглядеть: 01 10 01 11 00 11 10 01 11 10 01.
+	
+	Далее декодируем полученное сообщение:
+	
+	Т.к. каждый бит был закодирован двумя, то будем всякий раз делать шаг дины 2, а не 1, как это было при кодировании. В самом начале не может быть кодов $\{10, 11\}$. Таким образом, мы начинаем с вершины $\{01\}$ и сразу пишем в новый массив 1(если бы первой парой были $\{00\}$, то в массив был бы помещён 0), далее ориентируемся по графу и замечаем, что следующая пара это $\{10\}\Rightarrow$ в массив пишем вес ребра, которое приведёт нас в эту вершину - 1, на данном этапе наш массив будет выглядеть следующим образом: $\{1,1\}$. Продолжим наше путешествие по графу, видим следующую пару $\{01\}\Rightarrow$ дополняем массив весом ребра, которое ведёт туда из нашей предыдущей вершины - 1. Таким образом мы гуляем по графу пока наши пары битов не закончатся, и в конце мы получим ровно ту же последовательность, что мы и кодировали ранее.
+	
+	\newpage
+	\section{Практическая часть}
+	
+	Программа была написана на языке $C++$. И с полной её версией с целью протестировать весь функционал можно ознакомиться на моём $\href{https://github.com/GrandF17/Millers_code}{GitHub}$. Ниже представлены листинги частей прогаммы: кодирования и декодирования.
+	
+	Кодирование выглядит следующим образом:
+	\begin{lstlisting}
+		vector<bitset<1>> encode(vector<bitset<1>> bits) {
+			vector<bitset<1>> coded_bits;
+			int position;
+			
+			//  -_-_-_setting the first bit-_-_-_
+			coded_bits.push_back(0);    // cause we got only
+																	// 2 var-s 00 or 01
+			
+			if(bits[0] == 0) {
+				coded_bits.push_back(0);
+				position = 0;
+			} else {
+				coded_bits.push_back(1);
+				position = 1;
+			}
+			
+			for(int i = 1; i < bits.size(); i++) {
+				if(position == 0) {
+					if(bits[i] == 0) {      // 00 --> 11
+						coded_bits.push_back(1);
+						coded_bits.push_back(1);
+						position = 11;
+					} else {                // 00 --> 01
+						coded_bits.push_back(0);
+						coded_bits.push_back(1);
+						position = 1;
+					}
+				} else if(position == 1) {
+					if(bits[i] == 0) {      // 01 --> 11
+						coded_bits.push_back(1);
+						coded_bits.push_back(1);
+						position = 11;
+					} else {                // 01 --> 10
+						coded_bits.push_back(1);
+						coded_bits.push_back(0);
+						position = 10;
+					}
+				} else if(position == 10) {
+					if(bits[i] == 0) {      // 10 --> 00
+						coded_bits.push_back(0);
+						coded_bits.push_back(0);
+						position = 0;
+					} else {                // 10 --> 01
+						coded_bits.push_back(0);
+						coded_bits.push_back(1);
+						position = 1;
+					}
+				} else if(position == 11) {
+					if(bits[i] == 0) {      // 11 --> 00
+						coded_bits.push_back(0);
+						coded_bits.push_back(0);
+						position = 0;
+					} else {                // 11 --> 10
+						coded_bits.push_back(1);
+						coded_bits.push_back(0);
+						position = 10;
+					}
+				}
+			}
+			return coded_bits;
+		}
+	\end{lstlisting}
+	
+	\newpage
+		
+	Декодирование в свою очередь является полностью инвертированным:
+	
+	\begin{lstlisting}
+		vector<bitset<1>> decode(vector<bitset<1>> bits) {
+			vector<bitset<1>> decoded_bits;
+			int position;
+			
+			//  -_-_-_setting the first 2 bits-_-_-_
+			if(bits[0] == 0) {
+				if(bits[1] == 0) {
+					decoded_bits.push_back(0);
+					position = 0;
+				} else {
+					decoded_bits.push_back(1);
+					position = 1;
+				}
+			}
+			
+			for(int i = 2; i < bits.size(); i += 2) {
+				if(position == 0) {
+					if(bits[i] == 0) {      // 00 --> 01
+						decoded_bits.push_back(1);
+						position = 1;
+					} else {                // 00 --> 11
+						decoded_bits.push_back(0);
+						position = 11;
+					}
+				} else if(position == 1) {
+					if(bits[i + 1] == 0) {  // 01 --> 10
+						decoded_bits.push_back(1);
+						position = 10;
+					} else {                // 01 --> 11
+						decoded_bits.push_back(0);
+						position = 11;
+					}
+				} else if(position == 10) {
+					if(bits[i + 1] == 0) {  // 10 --> 00
+						decoded_bits.push_back(0);
+						position = 0;
+					} else {                // 10 --> 01
+						decoded_bits.push_back(1);
+						position = 1;
+					}
+				} else if(position == 11) {
+					if(bits[i] == 0) {      // 11 --> 00
+						decoded_bits.push_back(0);
+						position = 0;
+					} else {                // 11 --> 10
+						decoded_bits.push_back(1);
+						position = 10;
+					}
+				}
+			}
+			
+			return decoded_bits;
+		}
+	\end{lstlisting}	
+	
+	Внутри программы использовались библиотеки $\href{https://docs.microsoft.com/ru-ru/cpp/standard-library/vector-class?view=msvc-170}{vector}$ и $\href{https://docs.microsoft.com/ru-ru/cpp/standard-library/bitset-class?view=msvc-170}{bitset}$, которые позволили структурировать данные и снизить количество потребляемой памяти, т.к. в коде миллера оперируются лишь бинарные данные.
+	
+	\newpage
+	\section{Заключение}
+	В заключение, хотелось бы отметить то, что Код Миллера хоть и довольно просто объясняется в Теории Графов, однако он необходим для преобразования сообщений в электрические сигналы с помощью этого физического (канального) кодера. При
+	этом кодер устанавливает однозначное соответствие, называемое кодом, между элементами сообщения и элементами сигнала на его выходе (кодовыми символами). Таким образом, он является неотъемлемой частью взаимодействия между цифровыми носителями информации, представленной в цифровом виде, и физическими каналами связи и способствует её адаптации для передачи по оптоволокну, например.
+	
+	\newpage
+	\section{Список литературы}
+	
+	1. Берлин А. Н. Коммутация в системах и сетях связи. — М.: Эко-трендз, 2006. — 344 с. — ISBN 5-88405-073-9.
+	
+	2. Передача дискретных сообщений: Учебник для вузов/ В. П. Шувалов, Н. В. Захарченко, В. О. Шварцман и др. ; Под ред. В. П. Шувалова. — М.: Радио и связь, —1990—464 ISBN 5-256-00852-8
+	
+	3. Campbell Parallel Programming with Microsoft Visual C++ / Campbell. - Москва: Гостехиздат, 2011. - 784 c.
+	
+	4. Слепов Н. Н. Синхронные цифровые сети SDH. — М.: Эко-Трендз, -1998, 148c. ISBN - 5-88405-002-X
+	
+	5. Гольдштейн Борис Соломонович. Протоколы сети доступа. — БХВ-Петербург. — 2005.
+		
+\end{document}
