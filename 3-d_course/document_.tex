@@ -1,0 +1,588 @@
+\documentclass[utf8,14pt,a4paper,oneside,russian]{book}
+\usepackage[14pt]{extsizes}
+\usepackage{longtable}
+
+%===========
+%=Кодировка=
+%===========
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[main=russian, english]{babel}
+
+%===============
+%=Римские цифры=
+%===============
+\newcommand{\RNumb}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+%===================
+%=Разметка страницы=
+%===================
+\usepackage[left=3cm, right=1cm, top=2cm, bottom=2cm, headheight=14pt, headsep=1cm, footskip=1cm]{geometry}
+\pagestyle{plain}
+\linespread{1.1} %Межстрочный интервад
+\setlength{\parindent}{1.25cm} %Абзацный отступ
+\setlength{\parskip}{0em} %Интервал между абзацами
+\usepackage{indentfirst}
+
+\usepackage{misccorr}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{xcolor} %пакет для работы с цветом
+\usepackage{colortbl} %пакет для работы с цветом в таблицах
+
+%===========
+%=Заголовки=
+%===========
+\usepackage{titlesec}
+
+\titleformat{\section}{\centering\large\bfseries}{\thesection.}{0.5em}{\MakeUppercase}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.~#1}}
+\titlespacing*{\section}{0em}{2em}{1em}
+
+\titleformat{\subsection}{\centering\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\titlespacing*{\subsection}{0em}{1.25em}{0.5em}
+
+\titlespacing*{\paragraph}{0em}{1.05em}{0.25em}
+
+%=======
+%=Языки=
+%=======
+\usepackage{algorithm} %пакеты для работы с алгоритмами
+\usepackage{algpseudocode}
+
+\usepackage{listings}
+
+\usepackage{listings}
+\lstdefinelanguage
+{Assembler}
+{morekeywords={CDQE,CQO,CMPSQ,CMPXCHG16B,JRCXZ,LODSQ,MOVSXD, %
+		POPFQ,PUSHFQ,SCASQ,STOSQ,IRETQ,RDTSCP,SWAPGS, %
+		rax,rdx,rcx,rbx,rsi,rdi,rsp,rbp, %
+		r8,r8d,r8w,r8b,r9,r9d,r9w,r9b, %
+		r10,r10d,r10w,r10b,r11,r11d,r11w,r11b, %
+		r12,r12d,r12w,r12b,r13,r13d,r13w,r13b, %
+		r14,r14d,r14w,r14b,r15,r15d,r15w,r15b, mov, times, bits, xor, int, cmp, dw, jmp, jz, inc, db}} % etc.
+
+\lstloadlanguages{C, Python, Assembler, Java}
+
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{gr}{rgb}{0.97, 0.97, 0.97}
+
+\lstset{language=Assembler,
+	extendedchars=true,
+	belowcaptionskip=5pt,
+	backgroundcolor=\color{gr},
+	basicstyle=\ttfamily\normalsize,
+	breakatwhitespace=false,         
+	breaklines=true, 
+	%escapechar=|,
+	%frame=tb,
+	numbers=left,                          
+	numberstyle=\small\color{codegray},         
+	stepnumber=1,                         
+	numbersep=5pt,
+	commentstyle=\itshape,
+	stringstyle=\bfseries,
+	keepspaces=true,
+	showstringspaces=false,
+	tabsize=2,
+}
+
+%============
+%=Содержание=
+%============
+\usepackage{titletoc}
+\makeatletter
+\renewcommand{\tableofcontents}{\section*{Содержание}\markboth{Содержание}{}\@starttoc{toc}\newpage}
+\makeatother
+\titlecontents{section}[1.5em]{}{\contentslabel[\thecontentslabel.]{1.5em}}{}{\rule{0.1cm}{0pt}\titlerule*[0.75pc]{.}\contentspage}
+\titlecontents{subsection}[4em]{\vspace{0.05em}}{\contentslabel[\thecontentslabel.]{2em}}{}{\rule{0.1cm}{0pt}\titlerule*[0.75pc]{.}\contentspage}
+
+%========
+%=Списки=
+%========
+\usepackage{enumitem}
+\makeatletter
+\AddEnumerateCounter{\asbuk}{\@asbuk}{м)}
+\makeatother
+\setlist{nolistsep, topsep=0.375em}
+\setenumerate{leftmargin=2cm, labelsep=0em, labelwidth=0.75cm, align=left}
+\setitemize{leftmargin=2cm, labelsep=0em, labelwidth=0.75cm, align=left}
+\renewcommand{\labelitemi}{--}
+\renewcommand{\labelenumi}{\arabic{enumi})}
+\renewcommand{\labelenumii}{\asbuk{enumii})}
+\renewcommand{\labelenumiii}{--}
+
+%==========================
+%=Математические операторы=
+%==========================
+\DeclareMathOperator{\mob}{Mob}
+\DeclareMathOperator{\fix}{Fix}
+\DeclareMathOperator{\ord}{ord}
+
+\graphicspath{{pictures/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\begin{document}
+	
+	\thispagestyle{empty}
+	\small
+	\begin{center}
+		\includegraphics[width=4.55cm]{logo_mirea}\\
+		\MakeUppercase{Минобрнауки России}\\[1em]
+		Федеральное государственное бюджетное образовательное учреждение\\
+		высшего образования\\[0.5em]
+		\textbf{<<МИРЭА -- Российский технологический университет>>}\\
+		\textbf{РТУ МИРЭА}\\
+		\rule{\textwidth}{0.75pt}\\
+		Институт кибернетики\\
+		Базовая кафедра №252 -- информационной безопасности\\[-0.45em]
+		\rule{\textwidth}{0.75pt}\\[5em]
+		\normalsize\MakeUppercase{\textbf{Курсовая работа}}\small\\[0.5em]
+		По дисциплине\\ <<Методы программирования>>\\[1.5em]
+		Тема курсовой работы\\ \textbf{<<Приложение-мессенжер>>} \\[3em]
+		\begin{tabular}{p{7cm}p{6cm}c}
+			Студент группы ККСО-03-19 & Николенко В.О. & \rule{2cm}{0.75pt}\\[-0.5em]
+			& & \footnotesize\textit{(подпись)}\small\\[1em]
+			Руководитель курсовой работы & Чуваев А.В. & \rule{2cm}{0.75pt}\\[-0.5em]
+			& & \footnotesize\textit{(подпись)}\small\\[5em]
+			Работа представлена к защите & <<\rule{0.5cm}{0.75pt}>> \rule{2cm}{0.75pt} 2021 г. & \\[1em]
+			Допущен к защите & <<\rule{0.5cm}{0.75pt}>> \rule{2cm}{0.75pt} 2021 г. & \\[1em]
+		\end{tabular}
+		\vfill
+		Москва -- 2021
+	\end{center}
+	\normalsize
+	\newpage
+	
+	% Содержание
+	\tableofcontents
+	
+	% Первая глава
+	\section{Введение}
+	В наше время обмен информацией стал носить глобальный характер, и в связи с этим у людей с каждым годом появляются всё более высокие требования к приложениям и программам, позволяющим им коммуницировать друг с другом.
+	
+	Мы уже не можем представить себе скорость интернета в 5 кбит, как это было в конце 1990-х - начале 2000-х, не можем вообразить, как будем пользоваться приложением с кривым и страшным интерфейсом, приложением с большим количеством ошибок в коде, которые могут приводить к массовым сбоям, или вообще выходу из строя всей системы обмена сообщениями. Более того, много кто начал задумыватья о безопасности того приложения, посредством которого тот или иной гражданин отправляет информацию на другой конец провода. Иначе говоря, никто бы не хотел, чтоб его личную переписку прочитал кто-либо посторонний, враждебно настроенный. Все эти запросы породили клиентоориентированную индустрию-гиганта, которая корпит над своими детящими. 
+	
+	Я решил хотя бы отчасти прикоснуться к одной из отраслей этой индустрии - Android разработке. И далее я продемонстрирую свою работу, которая шла на проятжении 3 месяцев.
+	\newpage
+	
+	\section{Теоретическая часть}
+	\subsection{Концепция}
+	За основу мессенжера были взяты такие базовые возможности, как:
+	
+	\begin{enumerate}
+		%\setcounter{enumi}{2}
+		\item страница с авторизацией и возможностью как войти уже зарегистрированному пользователю, так и зарегистрировать нового.
+		\item чат двух пользователей.
+		\item возможность разлогиниться.
+		\item отдельная возможность для пользователей отправлять друг другу картинки, хранящиеся у них на устройствах.
+	\end{enumerate}
+	
+	В программе активно используется функционал RealTime Data Base в FireBase от корпорации Google, иначе говоря, при отправке и получении сообщений и данных пользователей вызваются методы, используемые корпорацией Google и которые, к сожалению, находятся в закрытом доступе. Так что их описание в дальнейшем будет довольно-таки поверхностным.
+	
+	\subsection{Разбор используемых сторонних методов из Java библиотек}
+	
+	Предлагаю ознакомиться с некоторыми методами, которые были использованы в проекте внутри классов исполняемой программы:\\
+	
+	$\bullet$ \textbf{onCreate} - первый метод, с которого начинается выполнение activity. В этом методе activity переходит в состояние Created. Этот метод обязательно должен быть определен в классе activity. В нем производится его первоначальная настройка. В частности, создаются объекты визуального интерфейса. Этот метод получает объект Bundle, который содержит прежнее состояние activity, если оно было сохранено. Если activity заново создается, то данный объект имеет значение null. Если же activity уже ранее была создана, но находилась в приостановленном состоянии, то bundle содержит связанную с activity информацию.
+	
+	После того, как метод onCreate() завершил выполнение, activity переходит в состояние Started, и и система вызывает метод onStart()\\
+	
+	$\bullet$ Метод \textbf{findViewById()} позволяет получить ссылку на View, которая размещена в разметке через его идентификатор.\\
+	
+	Чтобы разместить пользовательский интерфейс, необходимо вызвать метод \textbf{setContentView()}, т.к. изначально экран активности пуст. У метода есть две перегруженные версии. Можно передать в параметре либо экземпляр компонента (View), либо идентификатор ресурса (наиболее распространённый способ).\\
+
+	$\bullet$ Интерфейс \textbf{setOnClickListener()}. Кнопка присваивает себе обработчика с помощью метода setOnClickListener (View.OnClickListener l), т.е. подойдет любой объект с интерфейсом View.OnClickListener. Мы можем указать, что наш класс Activity будет использовать интерфейс \\View.OnClickListener.\\
+	
+	$\bullet$ Дочерняя активность может произвольно возвратить назад объект Intent, содержащий любые дополнительные данные. Вся эта информация в родительской активности появляется через метод обратного вызова\\ \textbf{Activity.onActivityResult()}, наряду с идентификатором, который она первоначально предоставила.
+	
+	Если дочерняя активность завершится неудачно или будет закрыта пользователем без подтверждения ввода через кнопку Back, то родительская активность получит результат с кодом RESULT\_CANCELED.
+	
+	Метод принимает несколько параметров:
+	
+	\begin{itemize}
+	\item код запроса - тот код, который использовался для запуска дочерней активности, возвращающий результат.
+	
+	\item результирующий код - код результата, поступающий от дочерней активности, как правило, RESULT\_OK или RESULT\_CANCELED
+	\item данные - намерение может включать в себя различные данные в виде параметра extras внутри намерения.\\
+	\end{itemize}
+
+	$\bullet$ Т.к. в нашем приложении могут так или иначе появиться двовольно объёмные списки, было принято решение использовать \textbf{ViewHolder}. Это одна из методик для улучшения производительности работы больших списков. Метод findViewById() достаточно тяжёлый в плане потребления ресурсов, так что нужно избегать его, если в нём нет прямой необходимости. ViewHolder сохраняет ссылки на необходимые в элементе списка шаблоны. Этот ViewHolder прикреплён к элементу методом setTag(). Каждый элемент списка может содержать применённую ссылку. Если элемент очищен, мы можем получить ViewHolder через метод getTag().\\
+	
+	$\bullet$ \textbf{LayoutInflater} используется для создания нового View (или же Layout) из одного из XML-макетов.\\
+	
+	\subsection{Описание функционала классов исполняемой программы}
+	
+	Программа содержит следующие классы:
+	
+	Главная Activity - \textbf{ChatActivity};
+	
+	Внутри реализованы такие алгоритмы как: ограничение объёма возможного сообщения, активация/деактивация кнопки отправки сообщения (то есть, если EditText пуст, то и кнопка неактивна), очистка EditText в XML вёрстке после нажатия кнопки отправки сообщения, при условии отсутствия имени пользователя (или же на начальных этапах, когда в приложении не было авторизации, для тестировки и отладки) устанавливается значение по умолчанию - default. Помимо всего прочего тут создан метод, благодаря, которому осуществляется выход на страницу регистрации, чтоб заново зайти или зарегистрироваться.\\
+	
+	\textbf{Message} - класс, определяющий параметры нашего сообщения, внутри конструктор для полей:
+	
+	\begin{itemize}
+	\item String text - текст самого сообщения;
+	\item String name - имя пользователя (отображается под текстом сообщения);
+	\item String sender - id пользователя-отправителя;
+	\item String recipient - id пользователя-получателя;
+	\item String imgUrl - если картинки нет, то содержит null, если есть, то Uri нашего изображения, которое содержится в RealTimeDataBase;
+	\item boolean myMessage - переменная отвечающая за отображение пузыря сообщения и раположение текста (если myMessage = true, то пузырь и текст внутри находятся справа, иначе - слева);\\
+	\end{itemize}
+
+	 \textbf{User} - класс, определяющий параметры нашего пользователя (те, что он ввёл при регистрации и имя, которое он может менять при входе в приложение), внутри конструктор для полей:
+	 
+	 \begin{itemize}
+	 	\item String name - имя пользователя;
+	 	\item String email - email пользователя;
+	 	\item String id - его уникальный идентификатор;
+	 	\item int avatarMockUpResource - заглушка для аватара;\\
+	 \end{itemize}
+ 
+ 	\textbf{MessageAdapter} - адаптер, содержащий объекты "Message". Именно в нём у нас определяется позиция сообщения, то есть, каким по счёту его отображать в общем списке (понятно, чем позже было отправлено сообщение, тем ниже в списке оно будет). Так же внутри метода идёт определение того, какой тип информации послал нам пользователь: текст или картинку.\\
+ 	
+ 	\textbf{SignInActivity} - класс отвечающий за авторизацию пользователя. Авторизация может проходить по одному из двух путей: вход для уже зарегистрированного пользователя и регистрация нового пользователя. В первом случае нам предлагается заполнить три поля: электронный почтовый адрес, который сравнивается алгоритмами Google и проверяется, существует ли он в базе или нет, пароль, который так же, как и электронный почтовый адрес, проверяется на сервере на соответствие введённому и имя пользователя. Во втором случае добавляется еще и строка подтверждения пароля, для уверенности в том, что он был введёт так, как задумывалось. Внутри стоит несколько проверок, например, длина пароля должна содержать 8 и более символо, строка с электронным адресом не должна быть пустой.\\
+ 	
+ 	\textbf{UserListActivity} - класс, в котором реализованы переходы внутрь чатов двух пользователей (а не чату из вообще всех пользователей, как это было на ранних этапах разработки), так же тут есть проверка, направленная на исключение текущего пользователя из списка чатов (хотя, его можно было бы оставить, как это сделали ВКонтакте и Телеграм, у них он назван "Сохраненные сообщения").
+	
+	\newpage
+	
+	\section{Практическая часть}
+	
+	\subsection{Часть \RNumb{1} - FireBase и RealTime DataBase}
+	
+	В силу того, что почти весь функционал чата построен на основе Fire Base от корпорации Google, рассмотрим для начала некоего рода код, который играет роль правил для всех пользователей, на самой странице FireBase:
+	
+	\begin{lstlisting}[language=C]
+		{
+			"rules": {
+				".read": "auth != null",
+				".write": "auth != null"
+			}
+		}
+	\end{lstlisting}
+	
+	Тут мы для $".read"$ и $".write"$ в качестве разрешений для прочтения и записи ставим параметр $"auth != null"$, что позволяет читать сообщения и/или писать в нашу базу данных от FireBase. То есть неавторизованный пользователь не сможет ни прочитать какое-то сообщение, ни написать что-либо в нашу базу данных.
+	
+	Далее в разделе аутентификации мы выбираем параметр \\$"Email/password"$, как самый простой и распространённый тип авторизации в любого рода приложениях.
+	
+	Для работоспособности кода добавим зависимость в \\$"build.gradle$ $(Module:$ $app)"$:
+	
+	\begin{lstlisting}[language=Java]
+		dependencies {
+			//...
+			implementation platform('com.google.firebase:firebase-bom:29.0.2')
+			implementation 'com.google.firebase:firebase-auth'
+		}
+	\end{lstlisting}
+	
+	\subsection{Часть \RNumb{2} - Программная реализация}
+	
+	Так как листинг программы целиком слишком велик, предлагаю рассмотреть конкретные участки программы внутри классов по отдельности и разобраться, что и каким образом они делают.
+	
+	\subsubsection{Класс SignInActivity}
+	
+	В классе $"SignInActivity"$ в методе $"onCreate"$ уже после инициализации переменных и связывания их при помощи id c элементами в XML-разметке мы пишем код следующего рода:
+	
+	\begin{lstlisting}[language=Java]
+		//...
+		//here we set OnClickListener
+		//for loginSignUpBtn to hear
+		//the button activity
+		//...
+		loginSignUpBtn.setOnClickListener(new View.OnClickListener() 
+		{
+			@Override
+			public void onClick(View view) 
+			{
+				loginSignUpUser(emailEditText.getText().toString().trim(), passwordEditText.getText().toString().trim());
+			}
+		});
+		
+		if(auth.getCurrentUser() != null) 
+		{
+			startActivity(new Intent(SignInActivity.this, UserListActivity.class));
+		}
+	\end{lstlisting}
+	
+	И для того чтоб всё заработало мы создаём метод $"loginSignUpUser"$ в котором пишем конструкцию $"if/else"$, благодаря чему мы разделяем пользователей, которые только лишь логинятся и которые собираются впервые зайти в приложение и регистрируются. В силу того, что по своей сути что внутри $"if"$, что внутри $"else"$ конструкции примерно похожи, рассмотрим только конструкцию предназначенную для регистрации пользователя:	
+	
+	\begin{lstlisting}[language=Java]
+		//...
+		//here we check if our two 
+		//passwords are equal
+		//...
+		if(!passwordEditText.getText().toString().trim().equals(confirmPasswordEditText.getText().toString().trim())) 
+		{
+			Toast.makeText(this, "Password mismatch", Toast.LENGTH_SHORT).show();
+		}
+		//...
+		//check if password less than 8 symbols
+		//... 
+		else if(passwordEditText.getText().toString().trim().length() < 8) 
+		{
+			Toast.makeText(this, "Password must contain 8 or more symbols", Toast.LENGTH_SHORT).show();
+		}
+		//...
+		//check if string with email
+		//is empty and shows a message
+		//for our user
+		//...
+		else if(emailEditText.getText().toString().trim().equals("")) 
+		{
+			Toast.makeText(this, "No email to sign up", Toast.LENGTH_SHORT).show();
+		} 
+		else 
+		{				
+			//...
+			//here is onCompleteListener
+			//...
+		}
+	\end{lstlisting}
+	
+	Сам $"onCompleteListener"$ в $"else"$ выглядит следующим образом:
+	
+	\begin{lstlisting}[language=Java]
+		auth.createUserWithEmailAndPassword(email, password)
+		
+		.addOnCompleteListener(this, new OnCompleteListener<AuthResult>() 
+		{
+			@Override
+			public void onComplete(@NonNull Task<AuthResult> task) 
+			{
+				if (task.isSuccessful()) 
+				{
+					//...
+					//Log in success, we create a new user
+					//and send to UserListActivity.class
+					//our new intent whith tag (key) "userName"
+					//...
+					FirebaseUser user = auth.getCurrentUser();
+					createUser(user);
+					Intent intent = new Intent(SignInActivity.this, UserListActivity.class);
+					intent.putExtra("userName", nameEditText.getText().toString().trim());
+					startActivity(intent);
+				} 
+				else 
+				{
+					// If sign in fails, display a message to the user.
+					//Log.w(TAG, "createUserWithEmail:failure", task.getException());
+					Toast.makeText(SignInActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
+	\end{lstlisting}
+	
+	Так же для упрощения задачи разделения логинящихся и регистрирующихся пользователей был написан ещё один метод:
+	
+	\begin{lstlisting}
+		public void toggleLoginMode(View view) {
+			if(loginModeActive) {
+				loginModeActive = false;
+				loginSignUpBtn.setText("Sign up");
+				toggleLoginSignUpTextView.setText("Or, log in");
+				confirmPasswordEditText.setVisibility(View.VISIBLE);
+			} else {
+				loginModeActive = true;
+				loginSignUpBtn.setText("Log in");
+				toggleLoginSignUpTextView.setText("Or, sign up");
+				confirmPasswordEditText.setVisibility(View.VISIBLE);
+				confirmPasswordEditText.setVisibility(View.GONE);
+			}
+		}
+	\end{lstlisting}
+	
+	Этот метод по своей сути нужен лишь для визуального комфорта пользователя. Он отвечает за отображение 3 строчек (строки пароля, email и имени пользователя) на странице регистрации для тех пользователей которые хотят залогиниться и 4 строчки (строки пароля, подтверждения пароля, email и имени пользователя) для тех, кто хочет зарегистрироваться.
+	
+	Для создания же пользователя используется приватный метод:
+	
+	\begin{lstlisting}
+		private void createUser(FirebaseUser firebaseUser) {
+			User user = new User();
+			user.setId(firebaseUser.getUid());
+			user.setEmail(firebaseUser.getEmail());
+			user.setName(nameEditText.getText().toString().trim());
+			usersDatabaseReference.push().setValue(user);
+		}
+	\end{lstlisting}
+	
+	\subsubsection{Класс ChatActivity}
+	
+	Один из интересных алгоритмов, найденных в документациях и на сайтах типа coderoad это $"addTextChangedListener"$, который активирует и деактивирует кнопку отправки. Когда пользователь что-то ввёл, хотя бы 1 символ, в TextEdit, кнопка загорается фиолетовым в знак того, что теперь сообщение введено и его можно отправить.
+	
+	\begin{lstlisting}
+		messageEditText.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+			
+			@Override
+			public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+				if(charSequence.toString().trim().length() > 0) {
+					sendMessageButton.setEnabled(true);
+				} else {
+					sendMessageButton.setEnabled(false);
+				}
+			}
+			
+			@Override
+			public void afterTextChanged(Editable editable) {}
+		});
+	\end{lstlisting}
+
+	Тут мы при помощи метода $"toString()"$ приводим пременную\\ $"charSequence"$ к строковому типу, а затем при помощи $"trim()"$ обрезаем пробелы в начале и в конце, если таковые имеются, чтоб сравнение строк стало более достоверным. И в случае, если длина этой строки у нас > 0, кнопка активируется.
+	
+	Вызываемый ниже метод не позволяет пользователю ввести более 500 символов в одном сообщении, это создано исключительно из эстетических целей, чтоб текст пользователя не перекрывал экран с остальными сообщениями.
+	
+	\begin{lstlisting}
+		messageEditText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(500)});
+	\end{lstlisting}
+	
+	Далее рассмотрим метод отправки сообщений:
+	
+	\begin{lstlisting}
+		sendMessageButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				
+				Message message = new Message();
+				message.setText(messageEditText.getText().toString());
+				message.setName(userName);
+				message.setSender(auth.getCurrentUser().getUid());
+				message.setRecipient(recipientUserId);
+				message.setImgUrl(null);
+				
+				messagesDatabaseReference.push().setValue(message);
+				
+				messageEditText.setText("");
+			}
+		});
+	\end{lstlisting}
+
+	Тут происходит присваивание полям нового экземпляра класса \\$"Message"$ значений (при помощи "сеттеров", которые позволяют обратиться к приватным значениям заданным в классе, мы устанавливаем значения text, name, sender, recipient и ImgUrl = null для message).
+	
+	В случае, если мы загружаем какой-то файл, а в нашем случае это картинка, FireBase предлагает нам использовать следующий алгоритм действий:
+	
+	\begin{lstlisting}
+		Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+			@Override
+			public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+				if (!task.isSuccessful()) {
+					throw task.getException();
+				}
+				
+				// Continue with the task to get the download URL
+				return imageReference.getDownloadUrl();
+			}
+		}).addOnCompleteListener(new OnCompleteListener<Uri>() {
+			@Override
+			public void onComplete(@NonNull Task<Uri> task) {
+				if (task.isSuccessful()) {
+					Uri downloadUri = task.getResult();
+					Message message = new Message();
+					message.setImgUrl(downloadUri.toString());
+					message.setName(userName);
+					message.setSender(auth.getCurrentUser().getUid());
+					message.setRecipient(recipientUserId);
+					messagesDatabaseReference.push().setValue(message);
+				} else {
+					// Handle failures
+					// ...
+				}
+			}
+		});
+	\end{lstlisting}
+
+	Тут мы так же инициализируем переменные класса $"Message"$, но в строковую переменную $"ImgUrl"$ кидаем $downloadUri.toString()$, благодаря чему мы потом можем видеть картинку с телефона другого пользователя, ведь мы по сути подгружаем её с сервера, куда она была отправлена (алгоритм схож с алгоритмом из web-разработки).
+	
+	\subsubsection{Класс UserAdapter}
+	
+	Сам по себе класс не очень интересен с точки зрения каких-то алгоритмов или нововведений. Если вкратце, то $"UserAdapter"$ нам нужен для создания очереди из пользователей, которые извлекаются из массива $ArrayList<User> users$, и при этом располагаются сначала те, кто был зарегистрирован в первую очередь (сверху вниз). При этом у каждого пользователя есть 2 поля: имя и заглушка для аватара, которые инициализируются внутри.
+	
+	\subsubsection{Класс MessageAdapter}
+	
+	Этот класс такой же по своему назначению, как и предыдущий, даже если смотреть на порядок появления сообщений (сначала более старые и так сверху вниз). Интерес представляют только две конструкции $"if/else"$:
+	
+	\begin{lstlisting}
+		int viewType = getItemViewType(position);
+		if(viewType == 0) {
+			layoutResource = R.layout.my_message_item;
+		} else {
+			layoutResource = R.layout.your_message_item;
+		}
+		
+		boolean isText = newMessage.getImgUrl() == null;
+		
+		if(isText) {
+			viewHolder.messageTextView.setVisibility(View.VISIBLE);
+			viewHolder.photoImageView.setVisibility(View.GONE);
+			viewHolder.messageTextView.setText(newMessage.getText());
+		} else {
+			viewHolder.messageTextView.setVisibility(View.GONE);
+			viewHolder.photoImageView.setVisibility(View.VISIBLE);
+			Glide.with(viewHolder.photoImageView.getContext()).load(newMessage.getImgUrl()).into(viewHolder.photoImageView);
+		}
+	\end{lstlisting}
+
+	Первая конструкция нужна для отображения нужного нам пузыря, где будет располагаться непосредственно сам текст сообщения. То есть, если viewType == 0, то моё сообщение отображается справа и пузырь ориентирован вправо, иначе (для собеседника от моего лица) его расположение слева и смотрит он так же влево.
+	
+	Вторая конструкция нужна для определения, какой перед нами тип данных: картинка или текст. В зависимости от этого мы убираем с экрана либо ImageView, либо TextView.
+	
+	\subsubsection{Класс UserListActivity}
+	
+	Тут присутствует важная для функционала конструкция - \\$"onUserClickListener"$:
+	
+	\begin{lstlisting}
+		userAdapter.setOnUserClickListener(new UserAdapter.OnUserClickListener() {
+			@Override
+			public void onUserClick(int position) {
+				goToChat(position);
+			}
+		});
+		
+		 private void goToChat(int position) {
+			Intent intent = new Intent(UserListActivity.this, ChatActivity.class);
+			intent.putExtra("recipientUserId", userArrayList.get(position).getId());
+			intent.putExtra("userName", userName);
+			startActivity(intent);
+		}
+	\end{lstlisting}
+
+	Здесь происходит переход к конкретному собеседнику по клику пользователя по средством передачи переменной  $position$, по своей сути это индекс элемента массива $"userArrayList"$, у которого мы после получаем $id$ и к которому впоследствие будут идти сообщения.
+	
+	Так же при создании пользователя была добавлена пустая иконка аватара. И при каждом последующем создании очередного пользователя на экране будет высвечиваться картинка и имя. Для этого нам потребуется заглушка, которую мы устанавливаем следующим образом:
+	
+	\begin{lstlisting}
+		public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+			User user = snapshot.getValue(User.class);
+			if(!user.getId().equals(auth.getCurrentUser().getUid())) {
+				user.setAvatarMockUpResource(R.drawable.user_image);
+				userArrayList.add(user);
+				userAdapter.notifyDataSetChanged();
+			}
+		}
+	\end{lstlisting}
+
+	Вся работа целиком лежит в Git репозитории\footnote{https://github.com/GrandF17/Chat-app}.
+
+	\newpage
+	
+	
+	\section{Заключение}
+	В заключение я бы хотел сказать, что после проделанной работы мне уже не кажется сложным, или невозможным написать свой собственный мессенжер. Многие трудные моменты, с которыми я столкнулся во время реализации, остались в прошлом, и я прекрасно осознаю, что этот проект можно улучшить и сделать надёжным в несколько сотен раз. Возможно, я буду работать над ним и в будущем, что довольно-таки вероятно.
+	
+	\newpage
+	
+	\section{Список литературы}
+	
+	\begin{enumerate}
+		\item Блинов И.Н., Романчик В.С. Java: методы программирования.
+		\item Google. Библиотека алгоритмов FireBase.
+		\item JavaRush.ru
+		\item Адитья Бхаргва. Грокаем алгоритмы.
+		\item Образовательный портал Udemy.
+	\end{enumerate}		
+	
+\end{document}
