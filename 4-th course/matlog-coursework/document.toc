@@ -10,8 +10,12 @@
 \contentsline {subsection}{\numberline {2.4}Префиксное дерево}{10}{subsection.0.2.4}%
 \contentsline {subsection}{\numberline {2.5}Куча}{11}{subsection.0.2.5}%
 \contentsline {subsection}{\numberline {2.6}Хэш-Таблица}{12}{subsection.0.2.6}%
-\contentsline {subsection}{\numberline {2.7}Дерево Меркла}{15}{subsection.0.2.7}%
-\contentsline {section}{\numberline {3}Алгоритмы на структурах данных}{18}{section.0.3}%
-\contentsline {subsection}{\numberline {3.1}Поиск высоты дерева}{18}{subsection.0.3.1}%
-\contentsline {subsection}{\numberline {3.2}Поиск в глубину}{18}{subsection.0.3.2}%
+\contentsline {subsection}{\numberline {2.7}Дерево Меркла}{14}{subsection.0.2.7}%
+\contentsline {section}{\numberline {3}Алгоритмы на структурах данных}{17}{section.0.3}%
+\contentsline {subsection}{\numberline {3.1}Поиск высоты дерева}{17}{subsection.0.3.1}%
+\contentsline {subsection}{\numberline {3.2}Поиск в глубину}{17}{subsection.0.3.2}%
+\contentsline {subsection}{\numberline {3.3}Нахождение цикла}{18}{subsection.0.3.3}%
+\contentsline {subsubsection}{Алгоритм Прима}{19}{subsubsection*.4}%
+\contentsline {section}{\numberline {4}Заключение}{20}{section.0.4}%
+\contentsline {section}{\numberline {5}Список литературы}{21}{section.0.5}%
 \contentsfinish 
