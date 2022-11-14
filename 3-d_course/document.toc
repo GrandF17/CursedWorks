@@ -1,0 +1,8 @@
+\babel@toc {russian}{}
+\contentsline {section}{\numberline {1}Введение}{3}{section.0.1}%
+\contentsline {section}{\numberline {2}Теоретическая часть}{4}{section.0.2}%
+\contentsline {section}{\numberline {3}Пример вычислений}{5}{section.0.3}%
+\contentsline {section}{\numberline {4}Практическая часть}{7}{section.0.4}%
+\contentsline {section}{\numberline {5}Заключение}{11}{section.0.5}%
+\contentsline {section}{\numberline {6}Список литературы}{12}{section.0.6}%
+\contentsfinish 

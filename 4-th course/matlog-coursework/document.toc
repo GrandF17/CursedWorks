@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {3.1}Поиск высоты дерева}{17}{subsection.0.3.1}%
 \contentsline {subsection}{\numberline {3.2}Поиск в глубину}{17}{subsection.0.3.2}%
 \contentsline {subsection}{\numberline {3.3}Нахождение цикла}{18}{subsection.0.3.3}%
-\contentsline {subsubsection}{Алгоритм Прима}{19}{subsubsection*.4}%
+\contentsline {subsection}{\numberline {3.4}Алгоритм Прима}{19}{subsection.0.3.4}%
 \contentsline {section}{\numberline {4}Заключение}{20}{section.0.4}%
 \contentsline {section}{\numberline {5}Список литературы}{21}{section.0.5}%
 \contentsfinish 

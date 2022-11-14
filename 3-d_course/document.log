@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.11.6)  14 NOV 2022 21:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.11.6)  14 NOV 2022 21:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1091,7 +1091,7 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count322
 \l__pdf_internal_box=\box90
 )
-(./document.aux)
+No file document.aux.
 \openout1 = `document.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 140.
@@ -1114,7 +1114,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 140.
 LaTeX Font Info:    ... okay on input line 140.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 140.
 LaTeX Font Info:    ... okay on input line 140.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1191,12 +1190,10 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 140.
 LaTeX Info: Redefining \pageref on input line 140.
 LaTeX Info: Redefining \nameref on input line 140.
-
-(./document.out) (./document.out)
 \@outlinefile=\write4
 \openout4 = `document.out'.
 
-<pictures/logo_mirea.png, id=71, 240.9pt x 240.9pt>
+<pictures/logo_mirea.png, id=7, 240.9pt x 240.9pt>
 File: pictures/logo_mirea.png Graphic file (type png)
 <use pictures/logo_mirea.png>
 Package pdftex.def Info: pictures/logo_mirea.png  used on input line 145.
@@ -1215,196 +1212,74 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./pictures/logo_mirea.png>
-] (./document.toc)
+]
 \tf@toc=\write5
 \openout5 = `document.toc'.
 
-[2] [3] [4]
+ [2] [3]
 
-pdfTeX warning: /usr/bin/pdflatex (file ./pictures/linked_list_1.pdf): PDF incl
-usion: found PDF version <1.7>, but at most version <1.5> allowed
-<pictures/linked_list_1.pdf, id=129, 433.62pt x 89.3739pt>
-File: pictures/linked_list_1.pdf Graphic file (type pdf)
-<use pictures/linked_list_1.pdf>
-Package pdftex.def Info: pictures/linked_list_1.pdf  used on input line 226.
-(pdftex.def)             Requested size: 433.61894pt x 89.37367pt.
+! LaTeX Error: File `t' not found.
 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.217 		\includegraphics[scale=0.48]{t}
+                                       \\
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
-pdfTeX warning: /usr/bin/pdflatex (file ./pictures/linked_list_2.pdf): PDF incl
-usion: found PDF version <1.7>, but at most version <1.5> allowed
-<pictures/linked_list_2.pdf, id=130, 463.7325pt x 102.3825pt>
-File: pictures/linked_list_2.pdf Graphic file (type pdf)
-<use pictures/linked_list_2.pdf>
-Package pdftex.def Info: pictures/linked_list_2.pdf  used on input line 228.
-(pdftex.def)             Requested size: 463.73135pt x 102.38225pt.
-[5 <./pictures/linked_list_1.pdf> <./pictures/linked_list_2.pdf>]
-<pictures/binary_tree.pdf, id=147, 225.84375pt x 188.20313pt>
-File: pictures/binary_tree.pdf Graphic file (type pdf)
-<use pictures/binary_tree.pdf>
-Package pdftex.def Info: pictures/binary_tree.pdf  used on input line 262.
-(pdftex.def)             Requested size: 225.84319pt x 188.20265pt.
+[4] [5] [6]
+LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
+256.
+ (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
+File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
+LaTeX Font Info:    Font shape `T2A/cmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `T2A/cmtt/m/n' tried instead on input line 257.
 
-Overfull \hbox (0.14459pt too wide) in alignment at lines 267--271
- [] [] [] [] [] 
- []
-
-
-
-pdfTeX warning: /usr/bin/pdflatex (file ./pictures/unbalanced_bin_tree.pdf): PD
-F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<pictures/unbalanced_bin_tree.pdf, id=148, 262.0992pt x 264.02641pt>
-File: pictures/unbalanced_bin_tree.pdf Graphic file (type pdf)
-<use pictures/unbalanced_bin_tree.pdf>
-Package pdftex.def Info: pictures/unbalanced_bin_tree.pdf  used on input line 2
-76.
-(pdftex.def)             Requested size: 262.09854pt x 264.02576pt.
-[6 <./pictures/binary_tree.pdf>]
-<pictures/avl_tree.pdf, id=163, 793.26288pt x 510.61134pt>
-File: pictures/avl_tree.pdf Graphic file (type pdf)
-<use pictures/avl_tree.pdf>
-Package pdftex.def Info: pictures/avl_tree.pdf  used on input line 286.
-(pdftex.def)             Requested size: 317.29953pt x 204.2409pt.
- [7 <./pictures/unbalanced_bin_tree.pdf> <./pictures/avl_tree.pdf>]
-<pictures/rb_tree.pdf, id=201, 995.97093pt x 495.35063pt>
-File: pictures/rb_tree.pdf Graphic file (type pdf)
-<use pictures/rb_tree.pdf>
-Package pdftex.def Info: pictures/rb_tree.pdf  used on input line 305.
-(pdftex.def)             Requested size: 448.18279pt x 222.90572pt.
- [8 <./pictures/rb_tree.pdf>]
-<pictures/graf.pdf, id=210, 266.9975pt x 176.66pt>
-File: pictures/graf.pdf Graphic file (type pdf)
-<use pictures/graf.pdf>
-Package pdftex.def Info: pictures/graf.pdf  used on input line 340.
-(pdftex.def)             Requested size: 160.19972pt x 105.99681pt.
- [9 <./pictures/graf.pdf>]
-<pictures/trie.pdf, id=224, 301.125pt x 282.30469pt>
-File: pictures/trie.pdf Graphic file (type pdf)
-<use pictures/trie.pdf>
-Package pdftex.def Info: pictures/trie.pdf  used on input line 370.
-(pdftex.def)             Requested size: 301.12425pt x 282.30399pt.
-
-[10 <./pictures/trie.pdf>]
-<pictures/heap.pdf, id=238, 376.40625pt x 451.6875pt>
-File: pictures/heap.pdf Graphic file (type pdf)
-<use pictures/heap.pdf>
-Package pdftex.def Info: pictures/heap.pdf  used on input line 390.
-(pdftex.def)             Requested size: 376.40532pt x 451.68639pt.
- [11]
-Overfull \hbox (8.18788pt too wide) in paragraph at lines 404--405
-[]\T2A/cmr/m/n/14.4 Любая опе-ра-ция внут-ри хеш-таблицы на-чи-на-ет-ся с то-го
-, что ключ каким-
- []
-
-[12 <./pictures/heap.pdf>]
-
-pdfTeX warning: /usr/bin/pdflatex (file ./pictures/hash_map.pdf): PDF inclusion
-: found PDF version <1.7>, but at most version <1.5> allowed
-<pictures/hash_map.pdf, id=326, 581.2917pt x 307.1475pt>
-File: pictures/hash_map.pdf Graphic file (type pdf)
-<use pictures/hash_map.pdf>
-Package pdftex.def Info: pictures/hash_map.pdf  used on input line 407.
-(pdftex.def)             Requested size: 465.034pt x 245.71832pt.
-[13 <./pictures/hash_map.pdf>]
-Overfull \hbox (37.71715pt too wide) in paragraph at lines 447--448
-[]\T2A/cmr/m/n/14.4 Хеш-деревья име-ют пре-иму-ще-ство пе-ред хеш-цепочками или
- хеш-функциями.
- []
-
-<pictures/hash_tree.pdf, id=347, 1656.1875pt x 1053.9375pt>
-File: pictures/hash_tree.pdf Graphic file (type pdf)
-<use pictures/hash_tree.pdf>
-Package pdftex.def Info: pictures/hash_tree.pdf  used on input line 460.
-(pdftex.def)             Requested size: 662.46327pt x 421.56754pt.
-[14] [15 <./pictures/hash_tree.pdf>] [16] [17]
-
-pdfTeX warning: /usr/bin/pdflatex (file ./pictures/1.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
-<pictures/1.pdf, id=378, 419.64778pt x 102.3825pt>
-File: pictures/1.pdf Graphic file (type pdf)
-<use pictures/1.pdf>
-Package pdftex.def Info: pictures/1.pdf  used on input line 543.
-(pdftex.def)             Requested size: 335.71867pt x 81.9061pt.
-
-
-pdfTeX warning: /usr/bin/pdflatex (file ./pictures/2.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
-<pictures/2.pdf, id=379, 333.16469pt x 108.405pt>
-File: pictures/2.pdf Graphic file (type pdf)
-<use pictures/2.pdf>
-Package pdftex.def Info: pictures/2.pdf  used on input line 547.
-(pdftex.def)             Requested size: 266.5321pt x 86.7241pt.
-
-
-pdfTeX warning: /usr/bin/pdflatex (file ./pictures/3.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
-<pictures/3.pdf, id=380, 333.16469pt x 108.405pt>
-File: pictures/3.pdf Graphic file (type pdf)
-<use pictures/3.pdf>
-Package pdftex.def Info: pictures/3.pdf  used on input line 551.
-(pdftex.def)             Requested size: 266.5321pt x 86.7241pt.
-
-
-pdfTeX warning: /usr/bin/pdflatex (file ./pictures/4.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
-<pictures/4.pdf, id=381, 333.16469pt x 108.405pt>
-File: pictures/4.pdf Graphic file (type pdf)
-<use pictures/4.pdf>
-Package pdftex.def Info: pictures/4.pdf  used on input line 555.
-(pdftex.def)             Requested size: 266.5321pt x 86.7241pt.
-
-
-pdfTeX warning: /usr/bin/pdflatex (file ./pictures/5.pdf): PDF inclusion: found
- PDF version <1.7>, but at most version <1.5> allowed
-<pictures/5.pdf, id=382, 333.16469pt x 108.405pt>
-File: pictures/5.pdf Graphic file (type pdf)
-<use pictures/5.pdf>
-Package pdftex.def Info: pictures/5.pdf  used on input line 559.
-(pdftex.def)             Requested size: 266.5321pt x 86.7241pt.
-[18 <./pictures/1.pdf> <./pictures/2.pdf> <./pictures/3.pdf> <./pictures/4.pdf>
-]
-
-pdfTeX warning: /usr/bin/pdflatex (file ./pictures/prima.pdf): PDF inclusion: f
-ound PDF version <1.7>, but at most version <1.5> allowed
-<pictures/prima.pdf, id=443, 262.0992pt x 133.45859pt>
-File: pictures/prima.pdf Graphic file (type pdf)
-<use pictures/prima.pdf>
-Package pdftex.def Info: pictures/prima.pdf  used on input line 572.
-(pdftex.def)             Requested size: 209.67963pt x 106.767pt.
-[19 <./pictures/5.pdf> <./pictures/prima.pdf>] [20] [21]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 589.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 589.
+[7] [8] [9] [10] [11] [12]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 400.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 400.
  (./document.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 589.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 589.
-Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 734B04A0B82360788C019F27B3522337;2851.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 400.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 400.
+
+
+Package rerunfilecheck Warning: File `document.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `document.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  6197F78589F778F8090774605676CEC1;982.
  ) 
 Here is how much of TeX's memory you used:
- 27877 strings out of 481239
- 501098 string characters out of 5920377
- 783608 words of memory out of 5000000
- 42558 multiletter control sequences out of 15000+600000
- 546123 words of font info for 61 fonts, out of 8000000 for 9000
+ 28366 strings out of 481239
+ 506288 string characters out of 5920377
+ 921829 words of memory out of 5000000
+ 42958 multiletter control sequences out of 15000+600000
+ 548701 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,10n,71p,970b,427s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,10n,71p,1466b,1907s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
-b></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/
-fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb
-></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/f
-onts/type1/public/cm-super/sfti1000.pfb>
-Output written on document.pdf (21 pages, 969156 bytes).
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public
+/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.p
+fb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf
+/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/
+cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pf
+b></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1440.pfb
+>
+Output written on document.pdf (12 pages, 678094 bytes).
 PDF statistics:
- 547 PDF objects out of 1000 (max. 8388607)
- 412 compressed objects within 5 object streams
- 49 named destinations out of 1000 (max. 500000)
- 231 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 281 PDF objects out of 1000 (max. 8388607)
+ 249 compressed objects within 3 object streams
+ 140 named destinations out of 1000 (max. 500000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
