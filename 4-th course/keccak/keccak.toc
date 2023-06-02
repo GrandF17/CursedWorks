@@ -1,0 +1,7 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\numberline {1}Введение}{3}{section.0.1}%
+\contentsline {subsection}{\numberline {1.1}Условные Обозначения}{11}{subsection.0.1.1}%
+\contentsline {section}{\numberline {2}Общее Представление}{12}{section.0.2}%
+\contentsline {section}{\numberline {3}Заключение}{17}{section.0.3}%
+\contentsline {section}{\numberline {4}Список литературы}{18}{section.0.4}%
+\contentsfinish 
